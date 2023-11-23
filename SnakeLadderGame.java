@@ -7,4 +7,11 @@ public class SnakeAndLadderGame {
         playGame();
     }
 
+   private static void playGame() {
+        int playerPosition = 0; 
+
+        // Logic for implementation of game 
+
+        System.out.println("Final Player Position: " + playerPosition);
+    }
 }
