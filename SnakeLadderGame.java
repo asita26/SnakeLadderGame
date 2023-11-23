@@ -33,11 +33,11 @@ public class SnakeAndLadderGame {
                     }
                     break;
             case 2:
-                playerPosition -= diceNumber;
+                playerPosition =  playerPosition - diceNumber;
                 if (playerPosition < 0) {
                     playerPosition = 0;
                 }
-                System.out.println("Snake: Player will move back by " + diceNumber + " steps to " + playerPosition);
+                System.out.println("Snake: Player will move back by " + diceNumber + " of steps to " + playerPosition);
                 break;
         }
 
