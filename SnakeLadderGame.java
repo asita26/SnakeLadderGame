@@ -14,4 +14,10 @@ public class SnakeAndLadderGame {
 
         System.out.println("Final Player Position: " + playerPosition);
     }
+
+    private static int rollDice() {
+    Random random = new Random();
+    return random.nextInt(6) + 1; // Returns a random number between 1 and 6
+}
+
 }
