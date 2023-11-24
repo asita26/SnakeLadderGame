@@ -1,8 +1,9 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class SnakeLadderGame {
 
-    private static final int WINNING_POSITION = 100;
+    private static final int WINNING_POSITION =100;
 
     public static void main(String[] args) {
         playGame();
@@ -18,15 +19,16 @@ public class SnakeLadderGame {
             int diceNumber = rollDice();
             diceRolls++;
             System.out.println("Player " + currentPlayer + " Dice Roll: " + diceNumber);
+            
 
-            int option = new Random().nextInt(3); // 0 - No Play, 1 - Ladder, 2 - Snake
-
+             int option = new Random().nextInt(3); // 0 - No Play, 1 - Ladder, 2 - Snake
+        
             switch (option) {
                 case 0:
-                    System.out.println("No Play. Player " + currentPlayer + " stays at position " + getPosition(currentPlayer, player1Position, player2Position));
+                    System.out.println("No Play.");
+                    // System.out.println("No Play. Player " + currentPlayer + " stays at position " + getPosition(currentPlayer, player1Position, player2Position));
                     break;
                 case 1:
-                    
                     int newPosition = updatePosition(currentPlayer, diceNumber, player1Position, player2Position);
                     if(currentPlayer == 1)
                     {
@@ -42,8 +44,14 @@ public class SnakeLadderGame {
                     }
                     break;
                 case 2:
-                    updatePosition(currentPlayer, -diceNumber, player1Position, player2Position);
-                    System.out.println("Snake! Player " + currentPlayer + " moves back by " + diceNumber + " positions to " + getPosition(currentPlayer, player1Position, player2Position));
+                     int newPP=updatePosition(currentPlayer, -diceNumber, player1Position, player2Position);
+                     if(currentPlayer == 1)
+                    {
+                        player1Position = newPP;
+                    }
+                    else
+                    player2Position = newPP;
+                    System.out.println("Snake! Player " + currentPlayer + " moves back by " + diceNumber + " positions to " + newPP) ;
                     break;
             }
 
@@ -75,9 +83,7 @@ private static int updatePosition(int currentPlayer, int diceNumber, int player1
         return player2Position;
     }
 }
-private static int getPosition(int currentPlayer, int player1Position, int player2Position) {
-    return (currentPlayer == 1) ? player1Position : player2Position;
-}
+
 
     private static int rollDice() 
     {
